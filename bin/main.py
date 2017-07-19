@@ -24,13 +24,12 @@ def PlayIntro():
 
 
 def playerInput(txtInput=None):
-    #txtInput = ""
 
     with open("availableInput", "r") as i:
         commands = i.readlines()
 
     while txtInput not in commands:
-        if txtInput not in commands and not None:
+        if txtInput not in commands and txtInput is not None:
             print("I don't know the word " + txtInput)
 
         txtInput = input(">>")
