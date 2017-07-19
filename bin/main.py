@@ -30,6 +30,9 @@ def playerInput():
         commands = i.readlines()
 
     while txtInput not in commands:
+        if txtInput not in commands and not "":
+            print("I don't know the word " + txtInput)
+
         txtInput = input(">>")
 
     return txtInput
