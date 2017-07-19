@@ -29,7 +29,7 @@ def playerInput():
     with open("availableInput", "r") as i:
         commands = i.readlines()
 
-    while txtInput != commands:
+    while txtInput not in commands:
         txtInput = input(">>")
 
     return txtInput
