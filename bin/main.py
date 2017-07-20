@@ -23,7 +23,42 @@ def PlayIntro():
     print()
 
 
+def room0Function():
+    #Starting room
+    current_pos = 'room0'
+    print("To the north lies a small cottage.")
+    print()
+    print("To the south there is a thicket of fur threes, far too dense")
+    print("to traverse safely.")
+    print()
+    print("To the east there is a beaten path through the trees.")
+    print()
+    print("To the west there is a thicket of fur trees and a chasm of")
+    print("unknown depth, much deeper than you care to fall.")
+    print()
+
+
+def room1Function():
+    #Cottage porch
+    current_pos = 'room1'
+    print()
+
+
+def room2Function():
+    #Beaten path
+    current_pos = 'room2'
+    print()
+
+
+def room3Function():
+    #Chasm
+    current_pos = 'room3'
+    print()
+
+
 def playerInput(txtInput=None):
+
+    current_pos = 'room0'
 
     with open("availableInput", "r") as i:
         commands = i.readlines()
@@ -34,7 +69,25 @@ def playerInput(txtInput=None):
 
         txtInput = input(">>")
 
-    return txtInput
+        if txtInput in commands and txtInput is not None:
+            if txtInput == "go north":
+                goDirection(room1Function())
+            elif txtInput == "go south":
+                goDirection(room2Function())
+            elif txtInput == "go west":
+                goDirection(room3Function())
+
+        return txtInput
+
+
+def goDirection(current_pos):
+
+    possible_moves = {
+        'room0' : room0Function(),
+        'room1' : room1Function(),
+        'room2' : room2Function(),
+        'room3' : room3Function()
+    }
 
 PlayIntro()
 playerInput()
