@@ -4,7 +4,7 @@
 import time
 
 
-def PlayIntro():
+def playIntro():
     print("Welcome to a text based adventure!")
     print()
     time.sleep(1)
@@ -36,24 +36,28 @@ def room0Function():
     print("To the west there is a thicket of fur trees and a chasm of")
     print("unknown depth, much deeper than you care to fall.")
     print()
+    playerInput()
 
 
 def room1Function():
     #Cottage porch
     current_pos = 'room1'
     print()
+    playerInput()
 
 
 def room2Function():
     #Beaten path
     current_pos = 'room2'
     print()
+    playerInput()
 
 
 def room3Function():
     #Chasm
     current_pos = 'room3'
     print()
+    playerInput()
 
 
 def playerInput(txtInput=None):
@@ -89,5 +93,5 @@ def goDirection(current_pos):
         'room3' : room3Function()
     }
 
-PlayIntro()
+playIntro()
 playerInput()
