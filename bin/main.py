@@ -75,13 +75,16 @@ def playerInput(txtInput=None):
 
         if txtInput in commands and txtInput is not None:
             if txtInput == "go north":
-                goDirection(room1Function())
+                current_pos = 'room1'
+                goDirection()
             elif txtInput == "go south":
+                current_pos = 'room2'
                 goDirection(room2Function())
             elif txtInput == "go west":
+                current_pos = 'room3'
                 goDirection(room3Function())
 
-        return txtInput
+        #return txtInput
 
 
 def goDirection(current_pos):
