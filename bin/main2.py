@@ -2,6 +2,7 @@
 # Text based adventure written in python 3, inspiration drawn from the game "Zork"
 
 import time
+import sys
 
 
 # Player constructor
@@ -59,27 +60,35 @@ def room2_look(player):
 
 def room3_look(player):
     #desc.
-    print("stuff")
+    print("You are overlooking a deep chasm, and you cannot see the bottom.")
+    print()
 
 
 def room4_look(player):
     #desc.
-    print("stuff")
+    print("There is a small mailbox here.")
+    print("A rubber mat saying 'Welcome to Zork!' lies by the door.")
+    print()
 
 
 def room5_look(player):
     #desc.
-    print("stuff")
+    print("You are facing the southeast corner of the house.")
+    print()
 
 
 def room6_look(player):
     #desc.
-    print("stuff")
+    print("You are facing the side of the house.")
+    print("A window is slighty ajar.")
+    print()
 
 
 def room7_look(player):
     #desc.
-    print("stuff")
+    print("You are facing the side of the house.")
+    print("the windows are barred.")
+    print()
 
 
 def room8_look(player):
@@ -89,12 +98,14 @@ def room8_look(player):
 
 def room9_look(player):
     #desc.
-    print("stuff")
+    print("You are facing the north western corner of the house.")
 
 
 def room10_look(player):
     #desc.
-    print("stuff")
+    print("There is an old, cracked concrete porch here.")
+    print("It doesn't look like it's been used in a long time.")
+    print()
 
 
 # MOVE NORTH ----------------------
@@ -196,6 +207,7 @@ def room10_movewest(player):
 def room2_pickupegg(player):
     if "Ruby Egg" not in player.inventory:
         player.inventory.insert(0, "Ruby Egg")
+        del rooms["room2"]["take egg"]
 
 
 # Dictionary that calls the function linked to the input dependent on
@@ -240,7 +252,10 @@ while myPlayer.playing:
 
     action = input(">> ")
 
-    try:
-        rooms[myPlayer.current_room][action](myPlayer)
-    except KeyError:
-        print("I don't know the word " + action)
+    if action == "exit":
+        sys.exit(0)
+    else:
+        try:
+            rooms[myPlayer.current_room][action](myPlayer)
+        except KeyError:
+            print("I don't know the word " + action)
